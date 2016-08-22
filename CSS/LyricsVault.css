@@ -1,23 +1,82 @@
-﻿body {
+﻿html, body{
+    height:100%;
+}
+
+body {
     background-color:#000;
     text-align:center;
     color:#fff;
     font-family: 'Oswald', sans-serif;
+    height:100%;
 }
 
-img{
+img {
     margin:0 auto;
 }
 
+.verticallyAligned{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
 
 /*Top Section Specific Styles*/
 
-#purpleHighlight{
-    color:#8d006c;
-    font-family: 'Baloo Bhaina', cursive;
+#topSection{
+    height:100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
-img[alt="Lyrics Vault Logo"]{
+#purpleHighlight {
+    color:#8d006c;
+    font-family: 'Baloo Bhaina', cursive;
+    letter-spacing: 0.15em;
+    font-size: 350%;
+}
+
+img[alt="Lyrics Vault Logo"] {
     max-height:15em;
 }
 
+.downwardChevron {
+    position: relative;
+    text-align: center;
+    padding: 12px;
+    height: 0.5em;
+    width: 8em;
+    margin: 2em auto;
+}
+
+.downwardChevron:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50%;
+      width: 49.5%;
+      background: #8d006c;
+      -webkit-transform: skew(0deg, 12deg);
+      -moz-transform: skew(0deg, 12deg);
+      -ms-transform: skew(0deg, 12deg);
+      -o-transform: skew(0deg, 12deg);
+      transform: skew(0deg, 12deg);
+}
+
+.downwardChevron:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 50%;
+      width: 49.5%;
+      background: #8d006c;
+      -webkit-transform: skew(0deg, -12deg);
+      -moz-transform: skew(0deg, -12deg);
+      -ms-transform: skew(0deg, -12deg);
+      -o-transform: skew(0deg, -12deg);
+      transform: skew(0deg, -12deg);
+}​
