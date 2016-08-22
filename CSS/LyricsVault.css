@@ -1,1 +1,21 @@
-﻿
+﻿body {
+    background-color:#000;
+    text-align:center;
+    color:#fff;
+}
+
+img{
+    margin:0 auto;
+}
+
+
+/*Top Section Specific Styles*/
+
+#purpleHighlight{
+    color:#8d006c;
+}
+
+img[alt="Lyrics Vault Logo"]{
+    max-height:15em;
+}
+
