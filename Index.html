@@ -18,6 +18,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" type="text/javascript"></script>
 
+    <script>
+
+        function goToSearchSection() {
+            $('#topSection').hide("drop", { direction: "up" }, "slow");
+        }
+
+    </script>
+
 </head>
 <body>
     <div class="container-fluid">
@@ -28,7 +36,7 @@
                 <h1 id="purpleHighlight">Lyrics Vault</h1>
                 <img src="http://zigoapps.com/wp-content/uploads/2015/01/padlock.png" alt="Lyrics Vault Logo" class="img-responsive" />
                 <p>Ready to unlock your lyrics, artist and album data?</p>
-                <button class="btn btn-primary" onclick="">Let's go!</button>
+                <button class="btn btn-primary" onclick="goToSearchSection()">Let's go!</button>
                 <div class="downwardChevron"></div>
             </div>
         </div>

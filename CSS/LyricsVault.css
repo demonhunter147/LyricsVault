@@ -1,5 +1,6 @@
 ﻿html, body, .container-fluid{
     height:100%;
+    overflow-y: hidden;
 }
 
 body {
@@ -88,6 +89,7 @@ img[alt="Lyrics Vault Logo"] {
     min-height: 15em;
     position:absolute;
     top:0;
+    overflow-y: auto;
 }
 
  /*End - Bottom Section Specific Styles*/
