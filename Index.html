@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Lyrics Vault - Unlock your Lyrics</title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Font Files-->
@@ -13,102 +13,118 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css">
 
     <style>
-        html, body, .container-fluid{
-    height:100%;
-    overflow-y: hidden;
-}
+        html, body, .container-fluid {
+            height: 100%;
+            overflow-y: hidden;
+        }
 
-body {
-    background-color:#000;
-    text-align:center;
-    color:#fff;
-    font-family: 'Oswald', sans-serif;
-    height:100%;
-    z-index:0;
-}
+        body {
+            background-color: #000;
+            text-align: center;
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            height: 100%;
+            z-index: 0;
+        }
 
-img {
-    margin:0 auto;
-}
+        img {
+            margin: 0 auto;
+        }
 
-/*Top Section Specific Styles*/
+        /*Top Section Specific Styles*/
 
-#topSection{
-    margin-top:4em;
-    margin-bottom:4em;
-    z-index:2;
-    position:relative;
-    background-color:#000;
-}
+        #topSection {
+            margin-top: 4em;
+            margin-bottom: 4em;
+            z-index: 2;
+            position: relative;
+            background-color: #000;
+        }
 
-#purpleHighlight {
-    color:#8d006c;
-    font-family:'Baloo Bhaina', cursive;
-    letter-spacing: 0.15em;
-    font-size: 350%;
-}
+        #purpleHighlight {
+            color: #8d006c;
+            font-family: 'Baloo Bhaina', cursive;
+            letter-spacing: 0.15em;
+            font-size: 350%;
+        }
 
-img[alt="Lyrics Vault Logo"] {
-    max-height:15em;
-}
+        img[alt="Lyrics Vault Logo"] {
+            max-height: 15em;
+        }
 
-.downwardChevron {
-    position: relative;
-    text-align: center;
-    padding: 12px;
-    height: 0.5em;
-    width: 8em;
-    margin: 2em auto;
-}
+        .downwardChevron {
+            position: relative;
+            text-align: center;
+            padding: 12px;
+            height: 0.5em;
+            width: 8em;
+            margin: 2em auto;
+        }
 
-.downwardChevron:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 50%;
-      width: 49.5%;
-      background: #8d006c;
-      -webkit-transform: skew(0deg, 12deg);
-      -moz-transform: skew(0deg, 12deg);
-      -ms-transform: skew(0deg, 12deg);
-      -o-transform: skew(0deg, 12deg);
-      transform: skew(0deg, 12deg);
-}
+            .downwardChevron:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 50%;
+                width: 49.5%;
+                background: #8d006c;
+                -webkit-transform: skew(0deg, 12deg);
+                -moz-transform: skew(0deg, 12deg);
+                -ms-transform: skew(0deg, 12deg);
+                -o-transform: skew(0deg, 12deg);
+                transform: skew(0deg, 12deg);
+            }
 
-.downwardChevron:after{
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 50%;
-      width: 49.5%;
-      background: #8d006c;
-      -webkit-transform: skew(0deg, -12deg);
-      -moz-transform: skew(0deg, -12deg);
-      -ms-transform: skew(0deg, -12deg);
-      -o-transform: skew(0deg, -12deg);
-      transform: skew(0deg, -12deg);
-}
+            .downwardChevron:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 50%;
+                width: 49.5%;
+                background: #8d006c;
+                -webkit-transform: skew(0deg, -12deg);
+                -moz-transform: skew(0deg, -12deg);
+                -ms-transform: skew(0deg, -12deg);
+                -o-transform: skew(0deg, -12deg);
+                transform: skew(0deg, -12deg);
+            }
 
- /*End - Top Section Specific Styles*/
+        /*End - Top Section Specific Styles*/
 
- /*Bottom Section Specific Styles*/
+        /*Bottom Section Specific Styles*/
 
-#bottomSection{
-    margin-top:5em;
-    width:100%;
-    background-color: #808080;
-    z-index: 1;
-    padding-top: 4em;
-    min-height: 15em;
-    position:absolute;
-    top:0;
-    overflow-y: auto;
-}
+        #bottomSection {
+            margin-top: 5em;
+            width: 100%;
+            background-color: #808080;
+            z-index: 1;
+            padding-top: 4em;
+            min-height: 25em;
+            position: absolute;
+            top: 0;
+            overflow-y: auto;
+        }
 
- /*End - Bottom Section Specific Styles*/
+        .alignCenter {
+            text-align: center;
+        }
 
+        /*Hide the Search Results Sections to Start*/
+        #artistList, #trackList {
+            display: none;
+        }
+
+            #artistList > ul, #trackList > ul {
+                list-style-type: square;
+            }
+
+                #artistList > ul > li > a, #trackList > ul > li > a {
+                    color: white;
+                }
+
+        /*End - Bottom Section Specific Styles*/
     </style>
 
     <!-- JS Files -->
@@ -120,6 +136,81 @@ img[alt="Lyrics Vault Logo"] {
         function goToSearchSection() {
             $('#topSection').hide("drop", { direction: "up" }, "slow");
         }
+
+        function startsearch() {
+            if (event.keyCode == 13)
+                $('#searchButton').click();
+        };
+
+        function getArtistData() {
+            var searchTerm = document.getElementById("searchInput").value;
+            $.ajax({
+                type: "GET",
+                data: {
+                    "X-Mashape-Key": "R7PIMuQOt4msh2hPC7R91pj4Qwx2p1b5mk9jsnfR2cK5NiOeSt",
+                    apikey: "5564c86cb7bb7468a95f71ff43a643f7",
+                    q_artist: searchTerm,
+                    format: "jsonp",
+                    callback: "jsonp_callback"
+                },
+                url: "http://api.musixmatch.com/ws/1.1/artist.search",
+                dataType: "jsonp",
+                jsonpCallback: 'jsonp_callback',
+                contentType: 'application/json',
+                success: function (data) {
+                    console.log(data);
+                    var artistsList = data.message.body.artist_list;
+                            ul = $("<ul>");
+                    for (var i = 0, l = artistsList.length; i < l; ++i) {
+                        ul.append("<li><a href='javascript:void(0)' onclick='getArtistTracks( &quot;" + artistsList[i].artist.artist_name + "&quot;)'>" + artistsList[i].artist.artist_name + "</a></li>");
+                        }
+                    $('#artistList').append(ul);
+                    $('#artistList').show();
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        };
+
+
+        function getArtistTracks(artistName) {
+            var artist = artistName;
+            document.getElementById("lyricSection").textContent = "";
+            $.ajax({
+                type: "GET",
+                data: {
+                    "X-Mashape-Key": "R7PIMuQOt4msh2hPC7R91pj4Qwx2p1b5mk9jsnfR2cK5NiOeSt",
+                    apikey: "5564c86cb7bb7468a95f71ff43a643f7",
+                    q_artist: artist,
+                    format: "jsonp",
+                    callback: "jsonp_callback"
+                },
+                url: "http://api.musixmatch.com/ws/1.1/track.search",
+                dataType: "jsonp",
+                jsonpCallback: 'jsonp_callback',
+                contentType: 'application/json',
+                success: function (data) {
+                    console.log(data);
+                    var tracksList = data.message.body.track_list,
+                            ul = $("<ul>");
+                    for (var i = 0, l = tracksList.length; i < l; ++i) {
+                        ul.append("<li><a href='javascript:void(0)' onclick='getLyrics(tracksList[i].track.track_id)'>" + tracksList[i].track.track_name + "</a></li>");
+                    }
+                    $('#trackList').append(ul);
+                    $('#trackList').show();
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        };
 
     </script>
 
@@ -139,15 +230,28 @@ img[alt="Lyrics Vault Logo"] {
         </div>
 
         <div id="bottomSection" class="row">
-            <div class="col-xs-offset-1 col-xs-4">
+            <div class="col-xs-offset-3 col-xs-6 alignCenter">
                 <h2>Search by artist...</h2>
                 <div class="input-group">
-                    <input id="searchInput" type="search" class="form-control" placeholder="Type here to search.." onkeydown = "startsearch()"/>
+                    <input id="searchInput" type="search" class="form-control" placeholder="Type here to search.." onkeydown="startsearch()" />
                     <span class="input-group-btn">
-                        <button id="searchButton" class="btn btn-primary">Start Search</button>
+                        <button id="searchButton" class="btn btn-primary" onclick="getArtistData()">Start Search</button>
                     </span>
                 </div>
             </div>
+            <div class="col-xs-3">
+            </div>
+            <div class="col-xs-offset-1 col-xs-5 alignCenter">
+                <div id="artistList">
+                    <h3>Select an Artist...</h3>
+                </div>
+            </div>
+            <div class="col-xs-offset-1 col-xs-5 alignCenter">
+                <div id="trackList">
+                    <h3>Select a Track...</h3>
+                </div>
+            </div>
+            <div id="lyricSection" class="col-xs-offset-1 col-xs-10"></div>
         </div>
     </div>
 
