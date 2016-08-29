@@ -12,120 +12,132 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css">
 
-    <style>
-        html, body, .container-fluid {
-            height: 100%;
-            overflow-y: hidden;
-        }
+<style>
+html, body, .container-fluid {
+    height: 100%;
+    overflow-x: hidden;
+}
 
-        body {
-            background-color: #000;
-            text-align: center;
-            color: #fff;
-            font-family: 'Oswald', sans-serif;
-            height: 100%;
-            z-index: 0;
-        }
+body {
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    height: 100%;
+    z-index: 0;
+}
 
-        img {
-            margin: 0 auto;
-        }
+img {
+    margin: 0 auto;
+}
 
-        /*Top Section Specific Styles*/
+/*Top Section Specific Styles*/
 
-        #topSection {
-            margin-top: 4em;
-            margin-bottom: 4em;
-            z-index: 2;
-            position: relative;
-            background-color: #000;
-        }
+#topSection {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    z-index: 2;
+    position: relative;
+    background-color: #000;
+}
 
-        #purpleHighlight {
-            color: #8d006c;
-            font-family: 'Baloo Bhaina', cursive;
-            letter-spacing: 0.15em;
-            font-size: 350%;
-        }
+#purpleHighlight {
+    color: #8d006c;
+    font-family: 'Baloo Bhaina', cursive;
+    letter-spacing: 0.15em;
+    font-size: 350%;
+}
 
-        img[alt="Lyrics Vault Logo"] {
-            max-height: 15em;
-        }
+img[alt="Lyrics Vault Logo"] {
+    max-height: 15em;
+}
 
-        .downwardChevron {
-            position: relative;
-            text-align: center;
-            padding: 12px;
-            height: 0.5em;
-            width: 8em;
-            margin: 2em auto;
-        }
+.downwardChevron {
+    position: relative;
+    text-align: center;
+    padding: 12px;
+    height: 0.5em;
+    width: 8em;
+    margin: 2em auto;
+}
 
-            .downwardChevron:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 50%;
-                width: 49.5%;
-                background: #8d006c;
-                -webkit-transform: skew(0deg, 12deg);
-                -moz-transform: skew(0deg, 12deg);
-                -ms-transform: skew(0deg, 12deg);
-                -o-transform: skew(0deg, 12deg);
-                transform: skew(0deg, 12deg);
-            }
+    .downwardChevron:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 50%;
+        width: 49.5%;
+        background: #8d006c;
+        -webkit-transform: skew(0deg, 12deg);
+        -moz-transform: skew(0deg, 12deg);
+        -ms-transform: skew(0deg, 12deg);
+        -o-transform: skew(0deg, 12deg);
+        transform: skew(0deg, 12deg);
+    }
 
-            .downwardChevron:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 50%;
-                width: 49.5%;
-                background: #8d006c;
-                -webkit-transform: skew(0deg, -12deg);
-                -moz-transform: skew(0deg, -12deg);
-                -ms-transform: skew(0deg, -12deg);
-                -o-transform: skew(0deg, -12deg);
-                transform: skew(0deg, -12deg);
-            }
+    .downwardChevron:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 50%;
+        width: 49.5%;
+        background: #8d006c;
+        -webkit-transform: skew(0deg, -12deg);
+        -moz-transform: skew(0deg, -12deg);
+        -ms-transform: skew(0deg, -12deg);
+        -o-transform: skew(0deg, -12deg);
+        transform: skew(0deg, -12deg);
+    }
 
-        /*End - Top Section Specific Styles*/
+/*End - Top Section Specific Styles*/
 
-        /*Bottom Section Specific Styles*/
+/*Bottom Section Specific Styles*/
 
-        #bottomSection {
-            margin-top: 5em;
-            width: 100%;
-            background-color: #808080;
-            z-index: 1;
-            padding-top: 4em;
-            min-height: 25em;
-            position: absolute;
-            top: 0;
-            overflow-y: auto;
-        }
+#bottomSection {
+    margin-top: 5em;
+    width: 100%;
+    background-color: #808080;
+    z-index: 1;
+    padding-top: 4em;
+    min-height: 25em;
+    position: absolute;
+    top: 0;
+    overflow-y: auto;
+}
 
-        .alignCenter {
-            text-align: center;
-        }
+.alignCenter {
+    text-align: center;
+}
 
-        /*Hide the Search Results Sections to Start*/
-        #artistList, #trackList {
-            display: none;
-        }
+/*Hide the Search Results Sections to Start*/
 
-            #artistList > ul, #trackList > ul {
-                list-style-type: square;
-            }
+#artistList, #trackList, #lyricSection {
+    display: none;
+    margin-top:2em;
+}
 
-                #artistList > ul > li > a, #trackList > ul > li > a {
-                    color: white;
-                }
+#artistList > ul, #trackList > ul {
+list-style-type: square;
+}
 
-        /*End - Bottom Section Specific Styles*/
-    </style>
+#artistList > ul > li > a, #trackList > ul > li > a {
+    color: white;
+}
+
+.jumbotron{
+    background-color:black;
+    margin-top:1em;
+}
+
+.jumbotron > h3{
+    color:#8d006c;
+}
+
+/*End - Bottom Section Specific Styles*/
+
+</style>
 
     <!-- JS Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
@@ -163,7 +175,8 @@
                             ul = $("<ul>");
                     for (var i = 0, l = artistsList.length; i < l; ++i) {
                         ul.append("<li><a href='javascript:void(0)' onclick='getArtistTracks( &quot;" + artistsList[i].artist.artist_name + "&quot;)'>" + artistsList[i].artist.artist_name + "</a></li>");
-                        }
+                    }
+                    $('#artistList > ul').empty();
                     $('#artistList').append(ul);
                     $('#artistList').show();
 
@@ -179,7 +192,6 @@
 
         function getArtistTracks(artistName) {
             var artist = artistName;
-            document.getElementById("lyricSection").textContent = "";
             $.ajax({
                 type: "GET",
                 data: {
@@ -198,10 +210,44 @@
                     var tracksList = data.message.body.track_list,
                             ul = $("<ul>");
                     for (var i = 0, l = tracksList.length; i < l; ++i) {
-                        ul.append("<li><a href='javascript:void(0)' onclick='getLyrics(tracksList[i].track.track_id)'>" + tracksList[i].track.track_name + "</a></li>");
+                        ul.append("<li><a href='javascript:void(0)' onclick='getLyrics(" + tracksList[i].track.track_id + ")'>" + tracksList[i].track.track_name + "</a></li>");
                     }
+                    $('#trackList > ul').empty();
                     $('#trackList').append(ul);
                     $('#trackList').show();
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        };
+
+        function getLyrics(trackId) {
+            var trackID = trackId;
+            $.ajax({
+                type: "GET",
+                data: {
+                    "X-Mashape-Key": "R7PIMuQOt4msh2hPC7R91pj4Qwx2p1b5mk9jsnfR2cK5NiOeSt",
+                    apikey: "5564c86cb7bb7468a95f71ff43a643f7",
+                    track_id: trackID,
+                    format: "jsonp",
+                    callback: "jsonp_callback"
+                },
+                url: "http://api.musixmatch.com/ws/1.1/track.lyrics.get",
+                dataType: "jsonp",
+                jsonpCallback: 'jsonp_callback',
+                contentType: 'application/json',
+                success: function (data) {
+                    console.log(data);
+                    var trackLyrics = data.message.body.lyrics.lyrics_body.split(/\s+/).slice(0, 100).join(" ") + "...";
+                    var p = document.createElement("p");
+                    p.textContent = trackLyrics;
+                    $('#lyricSection > p').empty();
+                    $('#lyricSection').append(p);
+                    $('#lyricSection').show();
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -241,17 +287,19 @@
             </div>
             <div class="col-xs-3">
             </div>
-            <div class="col-xs-offset-1 col-xs-5 alignCenter">
+            <div class="col-xs-offset-1 col-xs-5 col-md-offset-2 col-md-3 alignCenter">
                 <div id="artistList">
-                    <h3>Select an Artist...</h3>
+                    <h4>Please select an Artist...</h4>
                 </div>
             </div>
-            <div class="col-xs-offset-1 col-xs-5 alignCenter">
+            <div class="col-xs-offset-1 col-xs-5 col-md-offset-2 col-md-3 alignCenter">
                 <div id="trackList">
-                    <h3>Select a Track...</h3>
+                    <h4>Please select a Track...</h4>
                 </div>
             </div>
-            <div id="lyricSection" class="col-xs-offset-1 col-xs-10"></div>
+            <div id="lyricSection" class="col-xs-offset-1 col-xs-10 jumbotron">
+                <h3>Here are your Lyrics:</h3>
+            </div>
         </div>
     </div>
 
